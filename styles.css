@@ -56,14 +56,15 @@ body{
 
 .hero-content{
     margin-top:140px;
-    max-width:700px;
+    max-width:920px;
 }
 
 .hero-content h1{
-    font-size:72px;
-    line-height:1.1;
+    font-size:54px;
+    line-height:1.15;
     font-weight:800;
     margin-bottom:30px;
+    white-space:nowrap;
 }
 
 .hero-content p{
@@ -93,4 +94,237 @@ body{
 .btn-primary:hover{
     transform:translateY(-3px);
     box-shadow:0 0 25px rgba(0,255,208,0.4);
+}
+
+.tag{
+    display:inline-block;
+    color:#00ffd0;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:24px;
+}
+
+.hero-buttons{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    flex-wrap:wrap;
+}
+
+.btn-secondary{
+    color:#00ffd0;
+    text-decoration:none;
+    font-weight:600;
+    font-size:16px;
+    border-bottom:1px solid rgba(0,255,208,0.4);
+    padding-bottom:4px;
+    transition:0.3s;
+}
+
+.btn-secondary:hover{
+    border-color:#00ffd0;
+    color:#fff;
+}
+
+/* ── Secciones generales ─────────────────────────────────────────── */
+
+.section{
+    padding:110px 80px;
+    max-width:1200px;
+    margin:0 auto;
+}
+
+.section.dark-block{
+    max-width:none;
+    background:#070707;
+    border-top:1px solid rgba(255,255,255,0.06);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.section.dark-block > *{
+    max-width:1200px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.section-tag{
+    display:inline-block;
+    color:#00ffd0;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.section h2{
+    font-size:40px;
+    font-weight:800;
+    line-height:1.25;
+    max-width:800px;
+    margin-bottom:50px;
+}
+
+.section-text{
+    font-size:18px;
+    color:#cfcfcf;
+    line-height:1.7;
+    max-width:720px;
+    margin-bottom:40px;
+}
+
+/* ── Problema: cards ──────────────────────────────────────────────── */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.card{
+    background:#0a0a0a;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:32px;
+    transition:0.3s;
+}
+
+.card:hover{
+    border-color:rgba(0,255,208,0.35);
+    transform:translateY(-4px);
+}
+
+.card h3{
+    font-size:19px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#a8a8a8;
+    font-size:15px;
+    line-height:1.6;
+}
+
+/* ── Solución: pasos ──────────────────────────────────────────────── */
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+}
+
+.steps > div{
+    border-left:2px solid rgba(0,255,208,0.4);
+    padding-left:20px;
+}
+
+.steps span{
+    display:block;
+    font-size:14px;
+    font-weight:800;
+    color:#00ffd0;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.steps h3{
+    font-size:19px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.steps p{
+    color:#a8a8a8;
+    font-size:15px;
+    line-height:1.6;
+}
+
+/* ── Tecnología ───────────────────────────────────────────────────── */
+
+.tech-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.tech-item{
+    background:linear-gradient(180deg, rgba(0,255,208,0.05), transparent);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:28px;
+}
+
+.tech-item h3{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:10px;
+    color:#00ffd0;
+}
+
+.tech-item p{
+    color:#a8a8a8;
+    font-size:15px;
+    line-height:1.6;
+}
+
+/* ── Cita destacada ───────────────────────────────────────────────── */
+
+.quote-section{
+    text-align:center;
+    padding:100px 80px;
+}
+
+.quote-section h2{
+    font-size:34px;
+    font-weight:800;
+    max-width:700px;
+    margin:0 auto 20px;
+}
+
+.quote-section p{
+    color:#a8a8a8;
+    font-size:17px;
+    max-width:560px;
+    margin:0 auto;
+}
+
+/* ── Contacto ─────────────────────────────────────────────────────── */
+
+.contact{
+    text-align:center;
+}
+
+.contact h2,
+.contact .section-text{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#666;
+    font-size:14px;
+    border-top:1px solid rgba(255,255,255,0.06);
+}
+
+/* ── Responsive ───────────────────────────────────────────────────── */
+
+@media (max-width:900px){
+    .hero, .section, .quote-section{
+        padding:60px 24px;
+    }
+    .hero-content h1{
+        font-size:34px;
+        white-space:normal;
+    }
+    .cards, .steps, .tech-grid{
+        grid-template-columns:1fr;
+    }
+    .navbar .menu{
+        display:none;
+    }
 }
