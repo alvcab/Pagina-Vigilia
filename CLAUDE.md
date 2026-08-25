@@ -1,14 +1,17 @@
 # Instrucciones para Claude Code
 
-## Git: commit y push automáticos
+## Git: NO hacer commit ni push sin que se pida explícitamente
 
-El usuario pidió explícitamente (2026-08-04) que todo cambio hecho en este repo
-se commitee y pushee a `origin/main` sin pedir confirmación primero. No
-preguntar antes de hacer `git commit` / `git push` en este repo — hacerlo
-directamente al terminar cada tarea, salvo que el propio usuario diga lo
-contrario en esa conversación puntual.
+Instrucción vigente desde 2026-08-04 (reemplaza una instrucción anterior del
+mismo día que pedía lo contrario — el usuario la corrigió repetidamente en
+conversaciones posteriores porque el auto-commit interrumpía la iteración
+rápida sobre un mismo cambio). Regla actual: **nunca hacer `git commit` ni
+`git push` a menos que el usuario lo pida explícitamente en esa conversación**
+("commitea esto", "sube esto", "haz push", etc.). Aplicar los cambios de
+código normalmente y dejarlos sin commitear — el usuario decide cuándo un
+cambio está listo para quedar en el historial.
 
-Esto NO cambia las demás precauciones de git (revisar `git status`/`git diff`
+Esto no cambia las demás precauciones de git (revisar `git status`/`git diff`
 antes de un `git add` amplio para no subir secretos, no usar `--force` a
 `main` sin pedirlo explícitamente, no hacer `git reset --hard` ni descartar
 cambios sin avisar).

@@ -11,8 +11,7 @@ body{
 }
 
 .hero{
-    min-height:100vh;
-    padding:40px 80px;
+    padding:24px 80px 60px;
 
     background:
     radial-gradient(circle at top right,
@@ -27,26 +26,46 @@ body{
 }
 
 .navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    padding:8px 80px;
+    background:rgba(0,0,0,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.06);
 }
 
 .logo{
-    font-size:20px;
-    font-weight:800;
-    letter-spacing:3px;
+    display:flex;
+    align-items:center;
+    margin-left:30px;
+}
+
+.logo-img{
+    height:76px;
+    width:auto;
+    display:block;
 }
 
 .menu{
     display:flex;
-    gap:40px;
+    gap:14px;
+    flex-shrink:1;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    margin-right:400px;
 }
 
 .menu a{
     color:white;
     text-decoration:none;
     font-weight:500;
+    font-size:18px;
     transition:0.3s;
 }
 
@@ -55,7 +74,7 @@ body{
 }
 
 .hero-content{
-    margin-top:140px;
+    margin-top:110px;
     max-width:1200px;
 }
 
@@ -63,15 +82,15 @@ body{
     font-size:40px;
     line-height:1.2;
     font-weight:800;
-    margin-bottom:20px;
-    white-space:nowrap;
+    margin-bottom:12px;
 }
 
 .hero-content p{
     font-size:16px;
     color:#cfcfcf;
-    line-height:1.6;
-    margin-bottom:32px;
+    line-height:1.5;
+    margin-bottom:18px;
+    text-align:justify;
 }
 
 .btn-primary{
@@ -103,7 +122,7 @@ body{
     letter-spacing:2px;
     font-size:11px;
     font-weight:700;
-    margin-bottom:18px;
+    margin-bottom:10px;
 }
 
 .hero-buttons{
@@ -131,7 +150,7 @@ body{
 /* ── Secciones generales ─────────────────────────────────────────── */
 
 .section{
-    padding:110px 80px;
+    padding:64px 80px;
     max-width:1200px;
     margin:0 auto;
 }
@@ -149,30 +168,39 @@ body{
     margin-right:auto;
 }
 
+.ia-accent{
+    color:#8c06ff;
+}
+
 .section-tag{
-    display:inline-block;
-    color:#00ffd0;
+    display:block;
+    color:#ffffff;
     text-transform:uppercase;
     letter-spacing:2px;
-    font-size:11px;
+    font-size:32px;
     font-weight:700;
     margin-bottom:14px;
+    text-align:center;
+    width:fit-content;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .section h2{
-    font-size:29px;
+    font-size:28px;
     font-weight:800;
     line-height:1.3;
-    max-width:800px;
-    margin-bottom:36px;
+    max-width:none;
+    margin-bottom:22px;
+    text-align:justify;
 }
 
 .section-text{
     font-size:15px;
     color:#cfcfcf;
-    line-height:1.7;
+    line-height:1.5;
     max-width:720px;
-    margin-bottom:32px;
+    margin-bottom:20px;
 }
 
 /* ── Problema: cards ──────────────────────────────────────────────── */
@@ -180,14 +208,14 @@ body{
 .cards{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:24px;
+    gap:18px;
 }
 
 .card{
     background:#0a0a0a;
     border:1px solid rgba(255,255,255,0.08);
     border-radius:16px;
-    padding:32px;
+    padding:24px;
     transition:0.3s;
 }
 
@@ -200,12 +228,14 @@ body{
     font-size:16px;
     font-weight:700;
     margin-bottom:10px;
+    color:#00ffd0;
 }
 
 .card p{
     color:#a8a8a8;
     font-size:13px;
     line-height:1.6;
+    text-align:justify;
 }
 
 /* ── Solución: pasos ──────────────────────────────────────────────── */
@@ -213,7 +243,7 @@ body{
 .steps{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:24px;
+    gap:18px;
 }
 
 .steps > div{
@@ -234,6 +264,7 @@ body{
     font-size:16px;
     font-weight:700;
     margin-bottom:8px;
+    color:#00ffd0;
 }
 
 .steps p{
@@ -247,14 +278,14 @@ body{
 .tech-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:24px;
+    gap:18px;
 }
 
 .tech-item{
     background:linear-gradient(180deg, rgba(0,255,208,0.05), transparent);
     border:1px solid rgba(255,255,255,0.08);
     border-radius:16px;
-    padding:28px;
+    padding:20px;
 }
 
 .tech-item h3{
@@ -274,7 +305,7 @@ body{
 
 .quote-section{
     text-align:center;
-    padding:100px 80px;
+    padding:56px 80px;
 }
 
 .quote-section h2{
@@ -305,7 +336,7 @@ body{
 
 footer{
     text-align:center;
-    padding:40px;
+    padding:24px;
     color:#666;
     font-size:12px;
     border-top:1px solid rgba(255,255,255,0.06);

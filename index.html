@@ -5,37 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VIGILIA-MatIA</title>
 
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=39">
 </head>
 <body>
 
   <header class="hero">
     <nav class="navbar">
-      <div class="logo">VIGILIA<span>MatIA</span></div>
+      <a href="#" class="logo"><img src="logo.jpg?v=2" alt="Vigilia" class="logo-img"></a>
 
       <div class="menu">
         <a href="#problema">Problema</a>
         <a href="#solucion">Solución</a>
+        <a href="#residentes">Residentes</a>
+        <a href="#administracion">Administración</a>
         <a href="#tecnologia">Tecnología</a>
         <a href="#contacto">Contacto</a>
       </div>
     </nav>
 
     <section class="hero-content">
-      <p class="tag">IA local para edificios y condominios</p>
+      <p class="tag">IA local para edificios y condominios · En producción real</p>
 
       <h1>
         Un portero inteligente que no conversa por conversar.
       </h1>
 
       <p class="hero-text">
-        VIGILIA-MatIA identifica, valida, clasifica y ejecuta decisiones de acceso
-        en tiempo real, usando inteligencia artificial, voz, cámaras e integración
-        con citófonos e intercomunicadores IP.
+        Mat<span class="ia-accent">IA</span> identifica, valida, clasifica y ejecuta decisiones de acceso en tiempo real —
+        por citófono, por WhatsApp y por teléfono interno — con una sola inteligencia
+        detrás de los tres canales. Hoy opera 24/7 en un edificio real, no es un prototipo.
       </p>
 
       <div class="hero-buttons">
@@ -71,7 +79,7 @@
 
     <section id="solucion" class="section dark-block">
       <p class="section-tag">La solución</p>
-      <h2>MatIA actúa como un portero virtual operativo.</h2>
+      <h2>Mat<span class="ia-accent">IA</span> actúa como un portero virtual operativo.</h2>
 
       <p class="section-text">
         El sistema no busca mantener una conversación larga. Cada pregunta tiene un objetivo:
@@ -105,45 +113,178 @@
       </div>
     </section>
 
-    <section id="tecnologia" class="section">
+    <section id="canales" class="section">
+      <p class="section-tag">Un solo cerebro, tres canales</p>
+      <h2>Mat<span class="ia-accent">IA</span> atiende el citófono, WhatsApp y el teléfono interno — sin repetir configuración.</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>📞 Citófono / intercomunicador IP</h3>
+          <p>Atiende a visitas y delivery en la puerta de acceso y en el estacionamiento, valida con el residente y abre en el momento — todo por voz, sin apretar botones.</p>
+        </div>
+
+        <div class="card">
+          <h3>💬 WhatsApp</h3>
+          <p>Los residentes le escriben directo a Mat<span class="ia-accent">IA</span>: reservan amenidades, consultan paquetes, reportan un problema con foto o audio, o piden que le abran el portón a alguien — sin bajar a conserjería.</p>
+        </div>
+
+        <div class="card">
+          <h3>☎️ Teléfono interno (conserje/mayordomo)</h3>
+          <p>El personal del edificio tiene su propia línea directa con Mat<span class="ia-accent">IA</span>: registra novedades del turno dictándolas por voz, conecta con un departamento, o consulta información operativa al instante.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="residentes" class="section dark-block">
+      <p class="section-tag">Para los residentes</p>
+      <h2>Todo lo que antes requería bajar a conserjería, ahora se resuelve por WhatsApp.</h2>
+
+      <div class="tech-grid">
+        <div class="tech-item">
+          <h3>Reserva de amenidades</h3>
+          <p>Quincho, gimnasio, sala multiuso, sala de juegos — consulta disponibilidad y confirma la reserva en la misma conversación.</p>
+        </div>
+
+        <div class="tech-item">
+          <h3>Apertura remota</h3>
+          <p>"Ábrele a Juan" — el residente autoriza el ingreso de una visita sin tener que estar físicamente en la puerta.</p>
+        </div>
+
+        <div class="tech-item">
+          <h3>Pre-registro de visitas</h3>
+          <p>Autoriza con anticipación a alguien esperado, para que Mat<span class="ia-accent">IA</span> lo deje pasar directo sin llamar al departamento.</p>
+        </div>
+
+        <div class="tech-item">
+          <h3>Consulta de paquetes</h3>
+          <p>¿Llegó algo a mi nombre? Mat<span class="ia-accent">IA</span> revisa la conserjería y responde al instante.</p>
+        </div>
+
+        <div class="tech-item">
+          <h3>Reporte de incidentes con foto y audio</h3>
+          <p>El residente manda una foto o un audio contando el problema — Mat<span class="ia-accent">IA</span> lo entiende, deja la novedad registrada y genera el ticket de seguimiento automáticamente.</p>
+        </div>
+
+        <div class="tech-item">
+          <h3>Consultas al reglamento</h3>
+          <p>"¿Cuál es el horario de la piscina?" — Mat<span class="ia-accent">IA</span> responde directo desde el reglamento interno y de copropiedad del edificio, sin que el residente tenga que buscar el PDF.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="administracion" class="section">
+      <p class="section-tag">Para conserjería y administración</p>
+      <h2>Un panel real de control, no solo un chatbot.</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Auditoría con evidencia</h3>
+          <p>Cada acceso, decisión y llamada queda registrado con foto y motivo — trazabilidad completa de quién entró, cuándo y por qué se autorizó.</p>
+        </div>
+
+        <div class="card">
+          <h3>Tickets de seguimiento</h3>
+          <p>Toda incidencia sin resolver se convierte en un ticket con numeración por departamento, con estado hasta que se cierra.</p>
+        </div>
+
+        <div class="card">
+          <h3>Libro de novedades digital</h3>
+          <p>El conserje dicta la novedad por teléfono o WhatsApp y queda escrita — con traspaso de turno claro para el que sigue.</p>
+        </div>
+
+        <div class="card">
+          <h3>Control de estacionamientos</h3>
+          <p>Registro de ingreso/salida de visitas, alertas de sobreestadía y gestión de tarjetas de acceso RFID.</p>
+        </div>
+
+        <div class="card">
+          <h3>Avisos masivos por WhatsApp</h3>
+          <p>Comunicados a todo el edificio, a un piso o a departamentos puntuales — con historial de qué se mandó y cuándo.</p>
+        </div>
+
+        <div class="card">
+          <h3>Conversaciones y métricas</h3>
+          <p>Historial completo de las conversaciones de WhatsApp y del desempeño operativo de Mat<span class="ia-accent">IA</span>, todo desde un mismo dashboard.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tecnologia" class="section dark-block">
       <p class="section-tag">Tecnología</p>
       <h2>Diseñado para funcionar en el edificio, no depender de la nube.</h2>
 
       <div class="tech-grid">
         <div class="tech-item">
           <h3>IA local</h3>
-          <p>Procesamiento en equipo local tipo Mac mini, pensado para operación edge.</p>
+          <p>Procesamiento en equipo local tipo Mac mini, pensado para operación edge — con respaldo local automático si se pierde la conexión a internet.</p>
         </div>
 
         <div class="tech-item">
-          <h3>Voz y audio</h3>
-          <p>Interacción por voz con respuestas cortas, claras y aptas para TTS.</p>
+          <h3>Voz en tiempo real</h3>
+          <p>Reconocimiento y síntesis de voz de baja latencia, con una voz clonada propia del edificio en vez de una voz genérica de robot.</p>
         </div>
 
         <div class="tech-item">
-          <h3>Cámaras</h3>
-          <p>Registro visual de eventos, observaciones de rostro y evidencia de acceso.</p>
+          <h3>Visión por computador</h3>
+          <p>Identificación de residentes por rostro, conteo de personas y lectura de patentes vehiculares en los accesos.</p>
         </div>
 
         <div class="tech-item">
-          <h3>Intercom IP</h3>
-          <p>Integración con dispositivos SIP, citófonos, relay de puerta y telefonía interna.</p>
+          <h3>Intercom y SIP</h3>
+          <p>Integración nativa con citófonos IP, teléfonos internos y relay de apertura de puerta — sin hardware propietario adicional.</p>
         </div>
 
         <div class="tech-item">
-          <h3>Base de datos</h3>
-          <p>Historial de accesos, personas autorizadas, eventos y frases conocidas.</p>
+          <h3>Base de conocimiento propia</h3>
+          <p>El reglamento interno y de copropiedad del edificio, indexado para que Mat<span class="ia-accent">IA</span> responda con el contenido real — no con información inventada.</p>
         </div>
 
         <div class="tech-item">
-          <h3>Modo offline</h3>
-          <p>Arquitectura pensada para seguir operando localmente ante caída de internet.</p>
+          <h3>Multi-edificio</h3>
+          <p>Arquitectura pensada para escalar a varios edificios de una misma administración, cada uno con su propia configuración.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="emergencias" class="section">
+      <p class="section-tag">Seguridad y emergencias</p>
+      <h2>Cuando es una emergencia real, Mat<span class="ia-accent">IA</span> no pregunta de más — escala de inmediato.</h2>
+
+      <p class="section-text">
+        Incendio, emergencia médica, intrusión o pánico: Mat<span class="ia-accent">IA</span> reconoce el tipo de emergencia
+        y contacta directamente al servicio correspondiente (Bomberos, SAMU o Carabineros),
+        sin esperar confirmación adicional que solo haría perder tiempo valioso.
+      </p>
+
+      <div class="steps">
+        <div>
+          <span>🔥</span>
+          <h3>Bomberos</h3>
+          <p>Incendio, personas atrapadas, rebalse de sentina.</p>
+        </div>
+
+        <div>
+          <span>🚑</span>
+          <h3>SAMU</h3>
+          <p>Emergencia médica, persona inconsciente o herida.</p>
+        </div>
+
+        <div>
+          <span>🚓</span>
+          <h3>Carabineros</h3>
+          <p>Intrusión, asalto, robo o situación de pánico.</p>
+        </div>
+
+        <div>
+          <span>🛠️</span>
+          <h3>Mantención crítica</h3>
+          <p>Fallas graves de instalaciones que requieren atención inmediata.</p>
         </div>
       </div>
     </section>
 
     <section class="section quote-section">
-      <h2>“MatIA no conversa por conversar.”</h2>
+      <h2>“Mat<span class="ia-accent">IA</span> no conversa por conversar.”</h2>
       <p>
         Cada interacción debe terminar en una decisión útil para la seguridad del edificio.
       </p>
@@ -154,17 +295,18 @@
       <h2>Implementa control de acceso inteligente en tu edificio.</h2>
 
       <p class="section-text">
-        VIGILIA-MatIA está diseñado para edificios, condominios, accesos controlados
+        VIGILIA-Mat<span class="ia-accent">IA</span> está diseñado para edificios, condominios, accesos controlados
         y puntos de recepción donde se necesita automatización, trazabilidad y seguridad.
+        Ya opera en producción real — te mostramos cómo funciona con datos reales, no una maqueta.
       </p>
 
-      <a href="mailto:alvarocabrera@outlook.com" class="btn-primary">Contactar</a>
+      <a href="mailto:contacto@vigilia-tech.cl" class="btn-primary">Contactar</a>
     </section>
 
   </main>
 
   <footer>
-    <p>© 2026 VIGILIA-MatIA. Seguridad inteligente para edificios.</p>
+    <p>© 2026 VIGILIA-Mat<span class="ia-accent">IA</span>. Seguridad inteligente para edificios.</p>
   </footer>
 
   <script src="script.js"></script>
