@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VIGILIA-MatIA</title>
+  <meta name="description" content="MatIA: portero virtual con IA para edificios y condominios. Citófono, WhatsApp y teléfono interno con una sola inteligencia.">
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
@@ -13,17 +14,32 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=39">
+  <link rel="preload" as="image" href="img/edificio.webp">
+  <link rel="stylesheet" href="styles.css?v=41">
+
+  <script>
+    // Oculta los elementos animables antes del primer pintado. Si Motion no carga
+    // (CDN caído, file://) o el usuario prefiere menos movimiento, se muestran normal.
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("motion");
+      setTimeout(function () {
+        if (!window.__motionOK) document.documentElement.classList.remove("motion");
+      }, 2500);
+    }
+  </script>
 </head>
 <body>
 
-  <header class="hero">
-    <nav class="navbar">
-      <a href="#" class="logo"><img src="logo.jpg?v=2" alt="Vigilia" class="logo-img"></a>
+  <a href="#main" class="skip-link">Saltar al contenido</a>
 
-      <div class="menu">
+  <!-- ── Navegación ─────────────────────────────────────────────────── -->
+  <nav class="nav" aria-label="Principal">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo"><img src="logo.jpg?v=2" alt="Vigilia" width="1191" height="492"></a>
+
+      <div class="nav-links" id="nav-links">
         <a href="#problema">Problema</a>
         <a href="#solucion">Solución</a>
         <a href="#residentes">Residentes</a>
@@ -31,284 +47,418 @@
         <a href="#tecnologia">Tecnología</a>
         <a href="#contacto">Contacto</a>
       </div>
-    </nav>
 
-    <section class="hero-content">
-      <p class="tag">IA local para edificios y condominios · En producción real</p>
+      <a href="#contacto" class="nav-cta">Solicitar demo</a>
 
-      <h1>
-        Un portero inteligente que no conversa por conversar.
-      </h1>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-      <p class="hero-text">
+  <!-- ── Hero ───────────────────────────────────────────────────────── -->
+  <header class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow" data-reveal>VIGILIA · Mat<span class="ia-accent">IA</span></p>
+      <h1 data-reveal>Un portero inteligente que no conversa por conversar.</h1>
+      <p class="hero-sub" data-reveal>
         Mat<span class="ia-accent">IA</span> identifica, valida, clasifica y ejecuta decisiones de acceso en tiempo real —
         por citófono, por WhatsApp y por teléfono interno — con una sola inteligencia
         detrás de los tres canales. Hoy opera 24/7 en un edificio real, no es un prototipo.
       </p>
-
-      <div class="hero-buttons">
-        <a href="#contacto" class="btn-primary">Solicitar demo</a>
-        <a href="#solucion" class="btn-secondary">Ver solución</a>
+      <div class="cta-row" data-reveal>
+        <a href="#contacto" class="btn">Solicitar demo</a>
+        <a href="#solucion" class="link-arrow">Ver solución</a>
       </div>
-    </section>
+      <p class="live-pill" data-reveal><span class="live-dot" aria-hidden="true"></span> IA local para edificios y condominios · En producción real</p>
+    </div>
+
+    <figure class="hero-media" data-reveal>
+      <img src="img/edificio.webp" alt="Edificio residencial moderno visto desde abajo" width="1800" height="2400" fetchpriority="high">
+
+      <div class="float-card float-notif" aria-hidden="true">
+        <div class="fc-icon">M</div>
+        <div>
+          <p class="fc-top"><strong>Mat<span class="ia-accent">IA</span></strong><span>ahora</span></p>
+          <p class="fc-text">Delivery para el 1204 — autorizado por el residente. Portón peatonal abierto.</p>
+        </div>
+      </div>
+
+      <div class="float-card float-call" aria-hidden="true">
+        <p class="fc-label">Citófono · Acceso principal</p>
+        <div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <p class="fc-status"><span class="live-dot"></span> Identificando visita…</p>
+      </div>
+    </figure>
   </header>
 
-  <main>
+  <main id="main">
 
-    <section id="problema" class="section">
-      <p class="section-tag">El problema</p>
-      <h2>Los accesos siguen dependiendo de procesos lentos, manuales y poco trazables.</h2>
+    <!-- ── Destacados ─────────────────────────────────────────────── -->
+    <section class="stats" aria-label="Destacados">
+      <div class="stat" data-reveal><strong>24/7</strong><span>operando en un edificio real</span></div>
+      <div class="stat" data-reveal><strong>3</strong><span>canales: citófono, WhatsApp y teléfono interno</span></div>
+      <div class="stat" data-reveal><strong>1</strong><span>sola inteligencia detrás de todo</span></div>
+      <div class="stat" data-reveal><strong>100%</strong><span>de los accesos con registro y evidencia</span></div>
+    </section>
 
-      <div class="cards">
-        <div class="card">
+    <!-- ── Problema ───────────────────────────────────────────────── -->
+    <section id="problema" class="block block-gray">
+      <div class="block-head">
+        <p class="eyebrow" data-reveal>El problema</p>
+        <h2 data-reveal>Los accesos siguen dependiendo de procesos lentos, manuales y poco trazables.</h2>
+      </div>
+
+      <div class="bento bento-problem">
+        <figure class="tile tile-photo tile-wide" data-reveal>
+          <img src="img/lobby.webp" alt="Hall de acceso de un edificio con ascensores" width="1800" height="1350" loading="lazy">
+        </figure>
+
+        <article class="tile" data-reveal>
+          <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           <h3>Conserjería saturada</h3>
           <p>Visitas, deliverys, residentes, proveedores y emergencias llegan al mismo punto de atención.</p>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="tile" data-reveal>
+          <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l6-6M9 9l6 6"/></svg>
           <h3>Decisiones sin registro</h3>
           <p>Muchas autorizaciones ocurren verbalmente, sin evidencia clara ni historial consultable.</p>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="tile" data-reveal>
+          <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="8" height="8" rx="2"/><rect x="14" y="13" width="8" height="8" rx="2"/><path d="M10 7h4M17 7v3M7 14v3h3"/></svg>
           <h3>Comunicación fragmentada</h3>
           <p>Citófonos, cámaras, llamados y apertura de puertas suelen operar como sistemas separados.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── Solución ───────────────────────────────────────────────── -->
+    <section id="solucion" class="block">
+      <div class="block-head">
+        <p class="eyebrow" data-reveal>La solución</p>
+        <h2 data-reveal>Mat<span class="ia-accent">IA</span> actúa como un portero virtual operativo.</h2>
+        <p class="lead" data-reveal>
+          El sistema no busca mantener una conversación larga. Cada pregunta tiene un objetivo:
+          identificar a la persona, validar autorización, clasificar el caso y ejecutar la acción correcta.
+        </p>
+      </div>
+
+      <div class="split">
+        <ol class="steps">
+          <li data-reveal><span>01</span><div><h3>Identificar</h3><p>¿Quién es la persona que está en el acceso?</p></div></li>
+          <li data-reveal><span>02</span><div><h3>Validar</h3><p>¿Tiene autorización para ingresar o debe contactar a un residente?</p></div></li>
+          <li data-reveal><span>03</span><div><h3>Clasificar</h3><p>Visita, delivery, proveedor, residente, emergencia u otro caso.</p></div></li>
+          <li data-reveal><span>04</span><div><h3>Ejecutar</h3><p>Abrir, rechazar, llamar, registrar evento o escalar a un humano.</p></div></li>
+        </ol>
+
+        <!-- Maqueta: transcripción de una llamada de citófono -->
+        <div class="device-window" data-reveal aria-label="Ejemplo de atención por citófono" role="img">
+          <div class="dw-bar"><i></i><i></i><i></i><span>Citófono · Acceso principal · 18:42</span></div>
+          <div class="transcript">
+            <p class="msg msg-ai">Hola, bienvenido. ¿A qué departamento se dirige?<em>Identificar</em></p>
+            <p class="msg msg-user">Vengo a dejar un pedido para el 1204.</p>
+            <p class="msg msg-ai">Gracias. Estoy consultando con el residente.<em>Validar</em></p>
+            <p class="sys">Residente del 1204 confirmó por WhatsApp</p>
+            <p class="sys sys-tag">Caso clasificado: <strong>Delivery</strong><em>Clasificar</em></p>
+            <p class="sys sys-ok">Portón peatonal abierto · evento registrado con foto<em>Ejecutar</em></p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="solucion" class="section dark-block">
-      <p class="section-tag">La solución</p>
-      <h2>Mat<span class="ia-accent">IA</span> actúa como un portero virtual operativo.</h2>
+    <!-- ── Canales ────────────────────────────────────────────────── -->
+    <section id="canales" class="block block-gray">
+      <div class="block-head">
+        <p class="eyebrow" data-reveal>Un solo cerebro, tres canales</p>
+        <h2 data-reveal>Mat<span class="ia-accent">IA</span> atiende el citófono, WhatsApp y el teléfono interno — sin repetir configuración.</h2>
+      </div>
 
-      <p class="section-text">
-        El sistema no busca mantener una conversación larga. Cada pregunta tiene un objetivo:
-        identificar a la persona, validar autorización, clasificar el caso y ejecutar la acción correcta.
-      </p>
+      <div class="bento bento-channels">
+        <article class="tile tile-media" data-reveal>
+          <div class="tile-visual visual-photo">
+            <img src="img/paquete.webp" alt="Entrega de un paquete en la puerta" width="1200" height="1500" loading="lazy">
+            <span class="photo-chip"><span class="live-dot"></span> Delivery en acceso · validando</span>
+          </div>
+          <div class="tile-body">
+            <h3>Citófono / intercomunicador IP</h3>
+            <p>Atiende a visitas y delivery en la puerta de acceso y en el estacionamiento, valida con el residente y abre en el momento — todo por voz, sin apretar botones.</p>
+          </div>
+        </article>
 
-      <div class="steps">
-        <div>
-          <span>01</span>
-          <h3>Identificar</h3>
-          <p>¿Quién es la persona que está en el acceso?</p>
-        </div>
+        <article class="tile tile-media" data-reveal>
+          <div class="tile-visual visual-soft" aria-hidden="true">
+            <div class="phone phone-sm">
+              <div class="wa-head"><span class="wa-avatar">M</span><div><strong>MatIA</strong><small>en línea</small></div></div>
+              <div class="wa-body">
+                <p class="bub in">¿Llegó algo a mi nombre?</p>
+                <p class="bub out">Sí, un paquete a las 11:20. Está en conserjería.</p>
+                <p class="bub in">Ábrele a Juan, viene en 5 min</p>
+                <p class="bub out">Listo, Juan queda autorizado ✓</p>
+              </div>
+            </div>
+          </div>
+          <div class="tile-body">
+            <h3>WhatsApp</h3>
+            <p>Los residentes le escriben directo a Mat<span class="ia-accent">IA</span>: reservan amenidades, consultan paquetes, reportan un problema con foto o audio, o piden que le abran el portón a alguien — sin bajar a conserjería.</p>
+          </div>
+        </article>
 
-        <div>
-          <span>02</span>
-          <h3>Validar</h3>
-          <p>¿Tiene autorización para ingresar o debe contactar a un residente?</p>
-        </div>
-
-        <div>
-          <span>03</span>
-          <h3>Clasificar</h3>
-          <p>Visita, delivery, proveedor, residente, emergencia u otro caso.</p>
-        </div>
-
-        <div>
-          <span>04</span>
-          <h3>Ejecutar</h3>
-          <p>Abrir, rechazar, llamar, registrar evento o escalar a un humano.</p>
-        </div>
+        <article class="tile tile-media" data-reveal>
+          <div class="tile-visual visual-dark" aria-hidden="true">
+            <div class="call-ui">
+              <span class="call-avatar">M</span>
+              <strong>Mat<span class="ia-accent">IA</span></strong>
+              <small>Línea interna · 00:42</small>
+              <p class="call-quote">“Registra una novedad: se cambió la ampolleta del piso 7.”</p>
+              <div class="wave wave-light"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="tile-body">
+            <h3>Teléfono interno (conserje/mayordomo)</h3>
+            <p>El personal del edificio tiene su propia línea directa con Mat<span class="ia-accent">IA</span>: registra novedades del turno dictándolas por voz, conecta con un departamento, o consulta información operativa al instante.</p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section id="canales" class="section">
-      <p class="section-tag">Un solo cerebro, tres canales</p>
-      <h2>Mat<span class="ia-accent">IA</span> atiende el citófono, WhatsApp y el teléfono interno — sin repetir configuración.</h2>
+    <!-- ── Residentes ─────────────────────────────────────────────── -->
+    <section id="residentes" class="block">
+      <div class="block-head">
+        <p class="eyebrow" data-reveal>Para los residentes</p>
+        <h2 data-reveal>Todo lo que antes requería bajar a conserjería, ahora se resuelve por WhatsApp.</h2>
+      </div>
 
-      <div class="cards">
-        <div class="card">
-          <h3>📞 Citófono / intercomunicador IP</h3>
-          <p>Atiende a visitas y delivery en la puerta de acceso y en el estacionamiento, valida con el residente y abre en el momento — todo por voz, sin apretar botones.</p>
-        </div>
-
-        <div class="card">
-          <h3>💬 WhatsApp</h3>
-          <p>Los residentes le escriben directo a Mat<span class="ia-accent">IA</span>: reservan amenidades, consultan paquetes, reportan un problema con foto o audio, o piden que le abran el portón a alguien — sin bajar a conserjería.</p>
-        </div>
-
-        <div class="card">
-          <h3>☎️ Teléfono interno (conserje/mayordomo)</h3>
-          <p>El personal del edificio tiene su propia línea directa con Mat<span class="ia-accent">IA</span>: registra novedades del turno dictándolas por voz, conecta con un departamento, o consulta información operativa al instante.</p>
+      <div class="showcase" data-reveal>
+        <img class="showcase-photo" src="img/residente.webp" alt="Residente usando su celular junto a la puerta de acceso" width="1200" height="1800" loading="lazy">
+        <div class="phone phone-lg" aria-hidden="true">
+          <div class="wa-head"><span class="wa-avatar">M</span><div><strong>MatIA · Edificio</strong><small>en línea</small></div></div>
+          <div class="wa-body">
+            <p class="bub in">Quiero reservar el quincho el sábado</p>
+            <p class="bub out">El sábado está disponible de 13:00 a 18:00 y de 19:00 a 23:00. ¿Cuál prefieres?</p>
+            <p class="bub in">13 a 18</p>
+            <p class="bub out">Reservado: quincho, sábado 13:00–18:00. Te mando un recordatorio el viernes.</p>
+            <p class="bub in">¿Cuál es el horario de la piscina?</p>
+            <p class="bub out">Según el reglamento interno, de 10:00 a 21:00, de noviembre a marzo.</p>
+          </div>
         </div>
       </div>
-    </section>
 
-    <section id="residentes" class="section dark-block">
-      <p class="section-tag">Para los residentes</p>
-      <h2>Todo lo que antes requería bajar a conserjería, ahora se resuelve por WhatsApp.</h2>
-
-      <div class="tech-grid">
-        <div class="tech-item">
+      <div class="feature-grid">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg>
           <h3>Reserva de amenidades</h3>
           <p>Quincho, gimnasio, sala multiuso, sala de juegos — consulta disponibilidad y confirma la reserva en la misma conversación.</p>
         </div>
-
-        <div class="tech-item">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
           <h3>Apertura remota</h3>
           <p>"Ábrele a Juan" — el residente autoriza el ingreso de una visita sin tener que estar físicamente en la puerta.</p>
         </div>
-
-        <div class="tech-item">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg>
           <h3>Pre-registro de visitas</h3>
           <p>Autoriza con anticipación a alguien esperado, para que Mat<span class="ia-accent">IA</span> lo deje pasar directo sin llamar al departamento.</p>
         </div>
-
-        <div class="tech-item">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg>
           <h3>Consulta de paquetes</h3>
           <p>¿Llegó algo a mi nombre? Mat<span class="ia-accent">IA</span> revisa la conserjería y responde al instante.</p>
         </div>
-
-        <div class="tech-item">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
           <h3>Reporte de incidentes con foto y audio</h3>
           <p>El residente manda una foto o un audio contando el problema — Mat<span class="ia-accent">IA</span> lo entiende, deja la novedad registrada y genera el ticket de seguimiento automáticamente.</p>
         </div>
-
-        <div class="tech-item">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
           <h3>Consultas al reglamento</h3>
           <p>"¿Cuál es el horario de la piscina?" — Mat<span class="ia-accent">IA</span> responde directo desde el reglamento interno y de copropiedad del edificio, sin que el residente tenga que buscar el PDF.</p>
         </div>
       </div>
     </section>
 
-    <section id="administracion" class="section">
-      <p class="section-tag">Para conserjería y administración</p>
-      <h2>Un panel real de control, no solo un chatbot.</h2>
+    <!-- ── Administración ─────────────────────────────────────────── -->
+    <section id="administracion" class="block block-gray">
+      <div class="block-head">
+        <p class="eyebrow" data-reveal>Para conserjería y administración</p>
+        <h2 data-reveal>Un panel real de control, no solo un chatbot.</h2>
+      </div>
 
-      <div class="cards">
-        <div class="card">
+      <!-- Maqueta del panel de administración (datos de ejemplo) -->
+      <div class="dashboard" data-reveal role="img" aria-label="Panel de administración con registro de accesos, tickets y métricas">
+        <div class="dw-bar"><i></i><i></i><i></i><span>panel.vigilia · Edificio Los Robles</span></div>
+        <div class="db-layout">
+          <aside class="db-side">
+            <p class="db-brand">Mat<span class="ia-accent">IA</span></p>
+            <span class="active">Accesos</span><span>Tickets</span><span>Novedades</span><span>Estacionamientos</span><span>Avisos</span><span>Métricas</span>
+          </aside>
+          <div class="db-main">
+            <div class="db-kpis">
+              <div><small>Accesos hoy</small><strong>86</strong></div>
+              <div><small>Tickets abiertos</small><strong>4</strong></div>
+              <div><small>Paquetes en conserjería</small><strong>11</strong></div>
+              <div><small>Visitas en estacionamiento</small><strong>3</strong></div>
+            </div>
+            <table class="db-table">
+              <thead><tr><th>Hora</th><th>Depto.</th><th>Tipo</th><th>Decisión</th><th>Evidencia</th></tr></thead>
+              <tbody>
+                <tr><td>18:42</td><td>1204</td><td>Delivery</td><td><span class="ok">Abierto</span></td><td><span class="thumb"></span></td></tr>
+                <tr><td>18:31</td><td>803</td><td>Visita</td><td><span class="ok">Pre-registrada</span></td><td><span class="thumb"></span></td></tr>
+                <tr><td>18:17</td><td>—</td><td>Proveedor</td><td><span class="warn">Escalado</span></td><td><span class="thumb"></span></td></tr>
+                <tr><td>18:05</td><td>1502</td><td>Residente</td><td><span class="ok">Rostro validado</span></td><td><span class="thumb"></span></td></tr>
+                <tr class="db-hide-sm"><td>17:58</td><td>401</td><td>Visita</td><td><span class="no">Rechazado</span></td><td><span class="thumb"></span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
           <h3>Auditoría con evidencia</h3>
           <p>Cada acceso, decisión y llamada queda registrado con foto y motivo — trazabilidad completa de quién entró, cuándo y por qué se autorizó.</p>
         </div>
-
-        <div class="card">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>
           <h3>Tickets de seguimiento</h3>
           <p>Toda incidencia sin resolver se convierte en un ticket con numeración por departamento, con estado hasta que se cierra.</p>
         </div>
-
-        <div class="card">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
           <h3>Libro de novedades digital</h3>
           <p>El conserje dicta la novedad por teléfono o WhatsApp y queda escrita — con traspaso de turno claro para el que sigue.</p>
         </div>
-
-        <div class="card">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
           <h3>Control de estacionamientos</h3>
           <p>Registro de ingreso/salida de visitas, alertas de sobreestadía y gestión de tarjetas de acceso RFID.</p>
         </div>
-
-        <div class="card">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
           <h3>Avisos masivos por WhatsApp</h3>
           <p>Comunicados a todo el edificio, a un piso o a departamentos puntuales — con historial de qué se mandó y cuándo.</p>
         </div>
-
-        <div class="card">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg>
           <h3>Conversaciones y métricas</h3>
           <p>Historial completo de las conversaciones de WhatsApp y del desempeño operativo de Mat<span class="ia-accent">IA</span>, todo desde un mismo dashboard.</p>
         </div>
       </div>
     </section>
 
-    <section id="tecnologia" class="section dark-block">
-      <p class="section-tag">Tecnología</p>
-      <h2>Diseñado para funcionar en el edificio, no depender de la nube.</h2>
+    <!-- ── Tecnología (bloque oscuro) ─────────────────────────────── -->
+    <section id="tecnologia" class="block block-dark">
+      <div class="block-head">
+        <p class="eyebrow" data-reveal>Tecnología</p>
+        <h2 class="gradient-text" data-reveal>Diseñado para funcionar en el edificio, no depender de la nube.</h2>
+      </div>
 
-      <div class="tech-grid">
-        <div class="tech-item">
+      <div class="feature-grid">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>
           <h3>IA local</h3>
           <p>Procesamiento en equipo local tipo Mac mini, pensado para operación edge — con respaldo local automático si se pierde la conexión a internet.</p>
         </div>
-
-        <div class="tech-item">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg>
           <h3>Voz en tiempo real</h3>
           <p>Reconocimiento y síntesis de voz de baja latencia, con una voz clonada propia del edificio en vez de una voz genérica de robot.</p>
         </div>
-
-        <div class="tech-item">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
           <h3>Visión por computador</h3>
           <p>Identificación de residentes por rostro, conteo de personas y lectura de patentes vehiculares en los accesos.</p>
         </div>
-
-        <div class="tech-item">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
           <h3>Intercom y SIP</h3>
           <p>Integración nativa con citófonos IP, teléfonos internos y relay de apertura de puerta — sin hardware propietario adicional.</p>
         </div>
-
-        <div class="tech-item">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.7-4 3-9 3s-9-1.3-9-3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/></svg>
           <h3>Base de conocimiento propia</h3>
           <p>El reglamento interno y de copropiedad del edificio, indexado para que Mat<span class="ia-accent">IA</span> responda con el contenido real — no con información inventada.</p>
         </div>
-
-        <div class="tech-item">
+        <div class="feature" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18z"/><path d="M6 12H4a2 2 0 0 0-2 2v8h4M18 9h2a2 2 0 0 1 2 2v11h-4M10 6h4M10 10h4M10 14h4M10 18h4"/></svg>
           <h3>Multi-edificio</h3>
           <p>Arquitectura pensada para escalar a varios edificios de una misma administración, cada uno con su propia configuración.</p>
         </div>
       </div>
     </section>
 
-    <section id="emergencias" class="section">
-      <p class="section-tag">Seguridad y emergencias</p>
-      <h2>Cuando es una emergencia real, Mat<span class="ia-accent">IA</span> no pregunta de más — escala de inmediato.</h2>
+    <!-- ── Emergencias (foto a pantalla completa) ─────────────────── -->
+    <section id="emergencias" class="emergency">
+      <img class="emergency-bg" src="img/noche.webp" alt="" width="2400" height="1349" loading="lazy">
+      <div class="emergency-inner">
+        <p class="eyebrow" data-reveal>Seguridad y emergencias</p>
+        <h2 data-reveal>Cuando es una emergencia real, Mat<span class="ia-accent">IA</span> no pregunta de más — escala de inmediato.</h2>
+        <p class="lead" data-reveal>
+          Incendio, emergencia médica, intrusión o pánico: Mat<span class="ia-accent">IA</span> reconoce el tipo de emergencia
+          y contacta directamente al servicio correspondiente (Bomberos, SAMU o Carabineros),
+          sin esperar confirmación adicional que solo haría perder tiempo valioso.
+        </p>
 
-      <p class="section-text">
-        Incendio, emergencia médica, intrusión o pánico: Mat<span class="ia-accent">IA</span> reconoce el tipo de emergencia
-        y contacta directamente al servicio correspondiente (Bomberos, SAMU o Carabineros),
-        sin esperar confirmación adicional que solo haría perder tiempo valioso.
-      </p>
-
-      <div class="steps">
-        <div>
-          <span>🔥</span>
-          <h3>Bomberos</h3>
-          <p>Incendio, personas atrapadas, rebalse de sentina.</p>
-        </div>
-
-        <div>
-          <span>🚑</span>
-          <h3>SAMU</h3>
-          <p>Emergencia médica, persona inconsciente o herida.</p>
-        </div>
-
-        <div>
-          <span>🚓</span>
-          <h3>Carabineros</h3>
-          <p>Intrusión, asalto, robo o situación de pánico.</p>
-        </div>
-
-        <div>
-          <span>🛠️</span>
-          <h3>Mantención crítica</h3>
-          <p>Fallas graves de instalaciones que requieren atención inmediata.</p>
+        <div class="services">
+          <div class="service" data-reveal>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3.3.4 1.6 1.4 2.8 2.5 2.8z"/></svg>
+            <h3>Bomberos</h3>
+            <p>Incendio, personas atrapadas, rebalse de sentina.</p>
+          </div>
+          <div class="service" data-reveal>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <h3>SAMU</h3>
+            <p>Emergencia médica, persona inconsciente o herida.</p>
+          </div>
+          <div class="service" data-reveal>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <h3>Carabineros</h3>
+            <p>Intrusión, asalto, robo o situación de pánico.</p>
+          </div>
+          <div class="service" data-reveal>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></svg>
+            <h3>Mantención crítica</h3>
+            <p>Fallas graves de instalaciones que requieren atención inmediata.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section quote-section">
-      <h2>“Mat<span class="ia-accent">IA</span> no conversa por conversar.”</h2>
-      <p>
-        Cada interacción debe terminar en una decisión útil para la seguridad del edificio.
-      </p>
+    <!-- ── Cita ───────────────────────────────────────────────────── -->
+    <section class="quote">
+      <h2 data-reveal>“Mat<span class="ia-accent">IA</span> no conversa por conversar.”</h2>
+      <p data-reveal>Cada interacción debe terminar en una decisión útil para la seguridad del edificio.</p>
     </section>
 
-    <section id="contacto" class="section contact">
-      <p class="section-tag">Contacto</p>
-      <h2>Implementa control de acceso inteligente en tu edificio.</h2>
-
-      <p class="section-text">
-        VIGILIA-Mat<span class="ia-accent">IA</span> está diseñado para edificios, condominios, accesos controlados
-        y puntos de recepción donde se necesita automatización, trazabilidad y seguridad.
-        Ya opera en producción real — te mostramos cómo funciona con datos reales, no una maqueta.
-      </p>
-
-      <a href="mailto:contacto@vigilia-tech.cl" class="btn-primary">Contactar</a>
+    <!-- ── Contacto ───────────────────────────────────────────────── -->
+    <section id="contacto" class="contact">
+      <div class="contact-card" data-reveal>
+        <img src="img/atardecer.webp" alt="" width="2400" height="1602" loading="lazy">
+        <div class="contact-inner">
+          <p class="eyebrow">Contacto</p>
+          <h2>Implementa control de acceso inteligente en tu edificio.</h2>
+          <p class="lead">
+            VIGILIA-Mat<span class="ia-accent">IA</span> está diseñado para edificios, condominios, accesos controlados
+            y puntos de recepción donde se necesita automatización, trazabilidad y seguridad.
+            Ya opera en producción real — te mostramos cómo funciona con datos reales, no una maqueta.
+          </p>
+          <a href="mailto:contacto@vigilia-tech.cl" class="btn btn-light">Contactar</a>
+        </div>
+      </div>
     </section>
 
   </main>
 
-  <footer>
-    <p>© 2026 VIGILIA-Mat<span class="ia-accent">IA</span>. Seguridad inteligente para edificios.</p>
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© 2026 VIGILIA-Mat<span class="ia-accent">IA</span>. Seguridad inteligente para edificios.</p>
+      <p class="footer-note">Fotografías: Unsplash. Las pantallas del producto son ilustrativas.</p>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js?v=4"></script>
 </body>
 </html>
