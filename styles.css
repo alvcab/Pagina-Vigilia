@@ -20,7 +20,7 @@
     --radius-md:18px;
     --wrap:1120px;
     --gutter:clamp(20px, 5vw, 48px);
-    --ease:cubic-bezier(.22,1,.36,1);
+    --ease:cubic-bezier(.25,.1,.25,1);
 
     --font:-apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -62,7 +62,7 @@ a{ color:inherit; }
     background:var(--accent); color:#fff;
     border-radius:980px; text-decoration:none;
     font-size:17px; font-weight:500;
-    transition:background .2s, transform .2s var(--ease);
+    transition:background .4s var(--ease), transform .4s var(--ease);
 }
 .btn:hover{ background:var(--accent-hover); }
 .btn:active{ transform:scale(.97); }
@@ -74,7 +74,7 @@ a{ color:inherit; }
     color:var(--accent); text-decoration:none; font-size:17px; font-weight:500;
     min-height:44px; display:inline-flex; align-items:center;
 }
-.link-arrow::after{ content:"›"; margin-left:6px; font-size:22px; line-height:1; transition:transform .2s var(--ease); }
+.link-arrow::after{ content:"›"; margin-left:6px; font-size:22px; line-height:1; transition:transform .4s var(--ease); }
 .link-arrow:hover{ text-decoration:underline; }
 .link-arrow:hover::after{ transform:translateX(3px); }
 
@@ -98,14 +98,14 @@ a{ color:inherit; }
 .nav-links{ display:flex; gap:28px; margin-left:auto; }
 .nav-links a{
     color:#e8e8ed; text-decoration:none; font-size:13px; opacity:.85;
-    transition:opacity .2s;
+    transition:opacity .4s var(--ease);
 }
 .nav-links a:hover{ opacity:1; }
 
 .nav-cta{
     color:#fff; background:var(--accent); text-decoration:none;
     font-size:13px; font-weight:500; padding:6px 14px; border-radius:980px;
-    transition:background .2s;
+    transition:background .4s var(--ease);
 }
 .nav-cta:hover{ background:var(--accent-hover); }
 

@@ -27,27 +27,28 @@ if (root.classList.contains("motion")) {
     window.__motionOK = true;
     // Si algo de la animación falla, se muestra todo en vez de dejarlo oculto.
     window.addEventListener("error", () => root.classList.remove("motion"));
-    const ease = [0.22, 1, 0.36, 1];
+    // Curva suave tipo Apple: arranca despacio y se asienta sin frenazo.
+    const ease = [0.25, 0.1, 0.25, 1];
+    const DURATION = 1.6;
 
-    // Anima la entrada y al terminar limpia los estilos inline,
-    // para que los :hover y transiciones de CSS sigan funcionando.
-    function reveal(el, delay, distance = 32) {
+    // Aparece con un fundido, sin desplazarse: el texto ya está en su lugar.
+    // Al terminar limpia los estilos inline para que los :hover de CSS sigan funcionando.
+    function reveal(el, delay) {
       el.style.transition = "none";
       animate(
         el,
-        { opacity: [0, 1], translate: [`0 ${distance}px`, "0 0"] },
-        { duration: 0.8, delay, ease }
+        { opacity: [0, 1] },
+        { duration: DURATION, delay, ease }
       ).then(() => {
         el.classList.add("is-in");
         el.style.opacity = "";
-        el.style.translate = "";
         void el.offsetWidth;
         el.style.transition = "";
       });
     }
 
     // Hero: entrada escalonada al cargar
-    document.querySelectorAll(".hero [data-reveal]").forEach((el, i) => reveal(el, 0.1 + i * 0.1));
+    document.querySelectorAll(".hero [data-reveal]").forEach((el, i) => reveal(el, 0.2 + i * 0.22));
 
     // Resto: cada elemento aparece al entrar en pantalla; los hermanos
     // que entran juntos (cards de una grilla) van en cascada.
@@ -61,27 +62,20 @@ if (root.classList.contains("motion")) {
         if (!scheduled) {
           scheduled = true;
           requestAnimationFrame(() => {
-            batch.forEach((item, i) => reveal(item, i * 0.07));
+            batch.forEach((item, i) => reveal(item, i * 0.15));
             batch = [];
             scheduled = false;
           });
         }
       },
-      { amount: 0.2 }
+      { amount: 0.15, margin: "0px 0px -8% 0px" }
     );
 
     // Foto del hero: se acerca suavemente al hacer scroll (como en apple.com)
     const heroImg = document.querySelector(".hero-media img");
-    scroll(animate(heroImg, { scale: [1.12, 1] }, { ease: "linear" }), {
+    scroll(animate(heroImg, { scale: [1.08, 1] }, { ease: "linear" }), {
       target: document.querySelector(".hero-media"),
       offset: ["start end", "end end"],
-    });
-
-    // Foto de emergencias: leve parallax
-    const nightImg = document.querySelector(".emergency-bg");
-    scroll(animate(nightImg, { scale: [1.15, 1.15], translate: ["0 -6%", "0 6%"] }, { ease: "linear" }), {
-      target: document.querySelector(".emergency"),
-      offset: ["start end", "end start"],
     });
   });
 }
