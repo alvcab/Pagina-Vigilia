@@ -27,7 +27,7 @@
 
 *{ margin:0; padding:0; box-sizing:border-box; }
 
-html{ scroll-behavior:smooth; scroll-padding-top:64px; }
+html{ scroll-behavior:smooth; scroll-padding-top:76px; }
 
 body{
     background:var(--bg);
@@ -87,24 +87,27 @@ a{ color:inherit; }
     -webkit-backdrop-filter:saturate(180%) blur(20px);
 }
 
+/* La barra ocupa todo el ancho: el logo queda pegado al borde izquierdo */
 .nav-inner{
-    max-width:var(--wrap); margin:0 auto; height:52px;
-    padding:0 var(--gutter);
+    height:64px;
+    padding:0 clamp(16px, 5vw, 80px);
     display:flex; align-items:center; gap:28px;
 }
 
-.nav-logo img{ height:30px; width:auto; mix-blend-mode:screen; }
+.nav-logo{ flex:none; }
+.nav-logo img{ height:46px; width:auto; }
 
 .nav-links{ display:flex; gap:28px; margin-left:auto; }
 .nav-links a{
-    color:#e8e8ed; text-decoration:none; font-size:13px; opacity:.85;
+    color:#e8e8ed; text-decoration:none; font-size:15px; opacity:.85;
     transition:opacity .4s var(--ease);
 }
 .nav-links a:hover{ opacity:1; }
 
 .nav-cta{
     color:#fff; background:var(--accent); text-decoration:none;
-    font-size:13px; font-weight:500; padding:6px 14px; border-radius:980px;
+    font-size:15px; font-weight:500; padding:8px 18px; border-radius:980px;
+    white-space:nowrap; flex:none;
     transition:background .4s var(--ease);
 }
 .nav-cta:hover{ background:var(--accent-hover); }
@@ -550,9 +553,10 @@ h3{ font-size:19px; font-weight:600; letter-spacing:-0.01em; line-height:1.25; }
     .db-side{ display:none; }
 }
 
-@media (max-width:860px){
+/* Menú hamburguesa: con letras de 15px el menú completo ya no cabe bajo 1000px */
+@media (max-width:1000px){
     .nav-links{
-        position:absolute; top:52px; left:0; right:0;
+        position:absolute; top:64px; left:0; right:0;
         flex-direction:column; gap:0;
         background:rgba(0,0,0,.94);
         padding:8px var(--gutter) 20px;
@@ -562,7 +566,9 @@ h3{ font-size:19px; font-weight:600; letter-spacing:-0.01em; line-height:1.25; }
     .nav-links a{ font-size:17px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.1); }
     .nav-cta{ margin-left:auto; }
     .nav-toggle{ display:block; }
+}
 
+@media (max-width:860px){
     .stats{ grid-template-columns:1fr 1fr; row-gap:48px; }
     .bento-problem, .bento-channels{ grid-template-columns:1fr; }
     .tile-photo{ aspect-ratio:4 / 3; }
